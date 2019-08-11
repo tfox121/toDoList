@@ -2,9 +2,24 @@
   "name": "todolist",
   "version": "0.0.1",
   "description": "Basic to-do list app to learn server side rendering.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.14.0",
+    "jest": "^24.8.0",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.9",
+    "nunjucks": "^3.2.0",
+    "shortid": "^2.2.14",
+    "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": "10.0.0"
   },
   "repository": {
     "type": "git",
@@ -15,5 +30,13 @@
   "bugs": {
     "url": "https://github.com/tfox121/toDoList/issues"
   },
-  "homepage": "https://github.com/tfox121/toDoList#readme"
+  "homepage": "https://github.com/tfox121/toDoList#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
 }

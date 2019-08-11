@@ -1,0 +1,38 @@
+Should be a simple monolith with server side rendering. 
+
+User story:
+- As a user I can Create/Read/Update/Delete a TODO item.
+- The items are stored in a Database.
+- For now, there is no relation between the TODO item and the user - all users have the same list.
+
+On the technical side:
+- Use Express as a server.
+- Use Nunjucks for rendering server side templates.
+- No styling at all is perfectly acceptable.
+- Rendering server side -  no need to set up CORS.
+
+
+Requirements:
+- 100% test coverage using Jest and Supertest.
+- Deploy your code to a production server (use Heroku for this once the project is done).
+- Develop locally using git and eslint.
+- Use a Trello board to organize and keep track of your progress during the project.
+
+Suggestion:
+
+- Write your hello world server
+- Add a todo model
+- Write a simple template based on said model
+- Put a couple of todo items in the database
+- Create an action that fetches a todo item and returns a rendered html page
+- Write tests for said action
+- Move on to the next feature
+
+Tom's notes:
+
+- Jest https://jestjs.io/docs/en/getting-started.html
+- Express testing with jest and supertest: http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/
+
+- Please note that v5.0.1+ of superagent removes User-Agent header by default, therefore 
+you may need to add it yourself (e.g. GitHub blocks requests without a User-Agent header).
+This notice will go away with v5.0.2+ once it is released.
