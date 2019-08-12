@@ -31,12 +31,7 @@ app.post('/todo/complete', (req, res, next) => {
 
 // url for list of tasks & ids
 app.get('/todo/list', (req, res, next) => {
-  TaskStore.listTasks()
-    .then(data => {
-      res.json(data)
-    }).catch(err => {
-      next(err)
-    })
+  TaskController.listTasks(res, next)
 })
 
 module.exports = { app, port }

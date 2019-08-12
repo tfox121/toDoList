@@ -36,8 +36,8 @@ class TaskController {
   }
 
   // serve tasks & IDs as JSON
-  static listTasks (req, res, next) {
-    TaskStore.listTasks()
+  static listTasks (res, next) {
+    TaskStore.listTasks(res, next)
       .then(data => {
         res.json(data)
       }).catch(err => {
