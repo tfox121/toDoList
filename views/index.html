@@ -13,8 +13,8 @@
 <body>
     <div class="container d-flex flex-column">
         <h2>Personal Project - To Do List</h2>
-        <form action="/todo/new-task" method="POST">
-            <label for="url_input">New To Do List Item</label>
+        <form action="/" method="POST">
+            <label for="url_input"> To Do List Item</label>
             <input id="todo_input" type="text" name="todo" placeholder="Take out the rubbish">
             <input type="submit" value="ADD">
         </form>
@@ -23,7 +23,9 @@
                 To Do List:
             </h3>
             <div id="TodoRender">
-                Placeholder
+                {% block list %}
+                    Placeholder
+                {% endblock %}
             </div>
         </div>
     </div>

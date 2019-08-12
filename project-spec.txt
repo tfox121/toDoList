@@ -32,7 +32,11 @@ Tom's notes:
 
 - Jest https://jestjs.io/docs/en/getting-started.html
 - Express testing with jest and supertest: http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/
+- Nunjucks - Probably use slice once array objects returned.
+- Nunjucks - Possibly use macro to render multiple tasks.
+- You can even define blocks within looping:
+    {% for item in items %}
+    {% block item %}{{ item }}{% endblock %}
+    {% endfor %}
 
-- Please note that v5.0.1+ of superagent removes User-Agent header by default, therefore 
-you may need to add it yourself (e.g. GitHub blocks requests without a User-Agent header).
-This notice will go away with v5.0.2+ once it is released.
+- ?? {% include "missing.html" ignore missing %} ??

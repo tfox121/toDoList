@@ -3,7 +3,6 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const path = require('path')
 const bodyParser = require('body-parser')
 
 const request = require('supertest')
@@ -11,6 +10,12 @@ const request = require('supertest')
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
+
+const nunjucks = require('nunjucks')
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app
+})
 
 const mongoose = require('mongoose')
 const shortid = require('shortid')
@@ -71,20 +76,44 @@ const findTask = (taskId) => {
   })
 }
 
+// find task by id and delete
+
+const removeById = (taskId) => {
+  return new Promise((resolve, reject) => {
+    Task.find({ _id: taskId }).remove((err, data) => {
+      if (!err) {
+        console.log('Deleting task')
+        resolve(data)
+      } else {
+        console.log('Task delete error')
+        reject(err)
+      }
+    })
+  })
+}
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/public', express.static(process.cwd() + '/public'))
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '/views/index.html'))
+app.get('/', function (req, res, next) {
+  listTasks()
+    .then(data => {
+      res.render('fullList.njks', { data })
+    }).catch(err => {
+      next(err)
+    })
 })
 
-// create new task
-app.post('/todo/new-task', (req, res, next) => {
-  createTask(req.body.todo)
+// create new / remove task
+app.post('/', (req, res, next) => {
+  const action = req.body.todo ? createTask(req.body.todo) : removeById(Object.keys(req.body))
+  action
     .then(data => {
-      res.json(data)
+      return listTasks()
+    }).then(data => {
+      res.redirect('/')
     }).catch(err => {
       next(err)
     })
