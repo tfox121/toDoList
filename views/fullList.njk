@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block list %}
+<div class="columwrapper">
+  <form action="/todo/complete" method="post">
+    {%- for item in data %}
+      <li class="{{ item._id }}">
+        <button type="submit" class="tick" formmethod="post" name="delete" value="{{ item._id }}">
+          <i class="fas fa-check"></i>
+        </button>
+        {{ item.task }}
+      </li>
+    {%- endfor %}
+  </form
+</div>
+{% endblock %}

@@ -2,39 +2,39 @@
 
 <html>
 
-<head>
-    <title>To Do List</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <head>
+        <title>To Do List</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-    <link href="/public/style.css" rel="stylesheet" type="text/css">
-</head>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+        <link href="/public/style.css" rel="stylesheet" type="text/css">
+    </head>
 
-<body>
-    <div class="container d-flex flex-column">
-        <h2>Personal Project - To Do List</h2>
-        <form action="/" method="POST">
-            <label for="url_input"> To Do List Item</label>
-            <input id="todo_input" type="text" name="todo" placeholder="Take out the rubbish">
-            <input type="submit" value="ADD">
-        </form>
-        <div id="TodoBlock">
-            <h3 class="pb-3">
+    <body>
+        <div class="container d-flex flex-column">
+            <h2>Personal Project - To Do List</h2>
+            <form action="/todo/new" method="POST">
+                <label for="todo_input"> To Do List Item</label>
+                <input id="todo_input" type="text" name="todo" placeholder="Take out the rubbish">
+                <input type="submit" value="ADD">
+            </form>
+            <div id="TodoBlock">
+                <h3 class="pb-3">
                 To Do List:
-            </h3>
-            <div id="TodoRender">
-                {% block list %}
+                </h3>
+                <div id="TodoRender">
+                    {% block list %}
                     Placeholder
-                {% endblock %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer">
-        <p>
+        <div class="footer">
+            <p>
             by <a href="https://github.com/tfox121">tom fox</a>
-        </p>
-    </div>
-</body>
-
+            </p>
+        </div>
+    </body>
 
 </html>

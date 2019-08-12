@@ -42,9 +42,21 @@ input[type=text] {
 }
 
 #TodoBlock {
-    margin: 10px auto;
-    padding: 20px;
-    min-width: 550px;
-    border: solid 1px black;
-    border-radius: 5px;
+  margin: 10px auto;
+  padding: 20px;
+  min-width: 550px;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+#TodoRender {
+  text-align: left;
+}
+
+button {
+  margin-right: 0.5em;
+}
+
+li {
+  list-style-type: none;
 }

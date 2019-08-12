@@ -30,6 +30,8 @@ Suggestion:
 
 Tom's notes:
 
+- MVC CRUD - https://medium.com/fbdevclagos/developing-basic-crud-operations-with-node-express-and-mongodb-e754acb9cc15
+                https://itnext.io/a-new-and-better-mvc-pattern-for-node-express-478a95b09155
 - Jest https://jestjs.io/docs/en/getting-started.html
 - Express testing with jest and supertest: http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/
 - Nunjucks - Probably use slice once array objects returned.
