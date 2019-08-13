@@ -5,7 +5,10 @@ class TaskController {
   static createTask (req, res, next) {
     TaskStore.createTask(req.body.todo)
       .then(() => TaskStore.listTasks())
-      .then(res.redirect('/'))
+      .then(setTimeout(() => {
+        res.redirect('/')
+      }, 0)
+      )
       .catch(err => {
         next(err)
       })
@@ -15,7 +18,10 @@ class TaskController {
   static removeById (req, res, next) {
     TaskStore.removeById(req.body.delete)
       .then(() => TaskStore.listTasks())
-      .then(res.redirect('/'))
+      .then(setTimeout(() => {
+        res.redirect('/')
+      }, 0)
+      )
       .catch(err => {
         next(err)
       })
@@ -36,7 +42,10 @@ class TaskController {
 
   static submitEdit (req, res, next) {
     TaskStore.editTask(req.body)
-      .then(res.redirect('/'))
+      .then(setTimeout(() => {
+        res.redirect('/')
+      }, 0)
+      )
       .catch(err => {
         next(err)
       })

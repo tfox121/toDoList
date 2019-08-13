@@ -6,7 +6,7 @@
         <div class="taskWrapper {{ item._id }}">
           <form action="/todo/complete" class="cross" method="post">
             <button type="submit" name="delete" value="{{ item._id }}">
-              <i class="fas fa-times"></i>
+              <i class="fas fa-check"></i>
             </button>
           </form>
           {% if (id._id != item._id) %}
