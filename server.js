@@ -2,8 +2,8 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const app = require('./app').app
-const port = require('./app').port
+const app = require('./app')
+const port = process.env.PORT || 3000
 
 const mongoose = require('mongoose')
 
@@ -18,5 +18,3 @@ nunjucks.configure('views', {
   autoescape: true,
   express: app
 })
-
-module.exports = mongoose

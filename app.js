@@ -1,37 +1,15 @@
-const bodyParser = require('body-parser')
-
-const request = require('supertest')
-
 const express = require('express')
+const bodyParser = require('body-parser')
+const path = require('path')
 const app = express()
-const port = process.env.PORT || 3000
 
-const TaskStore = require('./stores/task.store')
-const TaskController = require('./controllers/task.controller')
+const homeRoute = require('./routes/home.route')
+const taskRoute = require('./routes/task.route')
 
+app.use('/public', express.static(path.join(process.cwd(), '/public')))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use('/', homeRoute)
+app.use('/todo', taskRoute)
 
-app.use('/public', express.static(process.cwd() + '/public'))
-
-// display front page with task list
-app.get('/', function (req, res, next) {
-  TaskController.serveFrontPage(res, next)
-})
-
-// create new task
-app.post('/todo/new', (req, res, next) => {
-  TaskController.createTask(req, res, next)
-})
-
-// complete task
-app.post('/todo/complete', (req, res, next) => {
-  TaskController.removeById(req, res, next)
-})
-
-// url for list of tasks & ids
-app.get('/todo/list', (req, res, next) => {
-  TaskController.listTasks(res, next)
-})
-
-module.exports = { app, port }
+module.exports = app

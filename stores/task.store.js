@@ -49,6 +49,24 @@ class TaskStore {
     })
   }
 
+  // find task by id, return edited database object
+  static editTask (req) {
+    return new Promise((resolve, reject) => {
+      Task.updateOne(
+        { _id: Object.keys(req)[0] },
+        { task: Object.values(req)[0] },
+        (err, task) => {
+          if (!err) {
+            console.log('Updating task')
+            resolve(task)
+          } else {
+            console.log('Task update error')
+            reject(err)
+          }
+        })
+    })
+  }
+
   // find task by id and delete
   static removeById (req) {
     return new Promise((resolve, reject) => {
