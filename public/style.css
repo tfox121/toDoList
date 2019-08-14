@@ -11,13 +11,18 @@ body {
   height: 100%;
 }
 
+h1 {
+  margin: 1em;
+}
+
 .container {
 	padding: 0;
 	margin-top: 40px;
 }
 
 .footer {
-	margin-top: 10px;
+  margin-top: 2em;
+  font-size: 0.8em;
 }
 
 #TodoBlock {
@@ -26,6 +31,7 @@ body {
   min-width: 550px;
   border: solid 1px black;
   border-radius: 5px;
+  background-color: rgb(243, 243, 243);
 }
 
 .taskWrapper {
@@ -33,11 +39,12 @@ body {
   align-items: stretch;
   border: solid 1px black;
   border-radius: 5px;
-  margin: 1px auto;
-  padding-left: 15px;
+  margin: 0.5em;
+  padding-left: 0.5em;
   min-height: 50px;
   max-width: 600px;
   flex-basis: 0;
+  background-color: white;
 }
 
 label {
@@ -57,27 +64,31 @@ input[type=text] {
   text-align: left;
 }
 
-.cross {
-  margin: auto;
-  margin-right: 1em;
+.newTask {
+  margin-top: 1em;
 }
 
-.task, .taskedit {
+.tick {
+  margin: auto;
+  padding-right: 0.5em;
+}
+
+.task, .taskEdit {
   display: flex;
   flex-grow: 1;
 }
 
-.task > button, .taskedit > input {
+.task > button, .taskEdit > input {
   width: 100%;
   text-align: left;
   min-height: 100%;
-  padding-left: 1em;
+  padding-left: 0.5em;
   border: none;
   background-color: transparent;
   font-size: 16px;
 }
 
-.taskedit > button {
+.taskEdit > button {
   margin: auto;
   margin-right: 0.5em;
   margin-left: 0.5em;
@@ -121,4 +132,21 @@ button:focus {
   padding-left: 0.3em;
   padding-right: 0.3em;
   font-size: 1.2em;
+}
+
+.task:hover {
+  background-color: hsl(0, 0%, 98%);
+  font-weight: bold;
+}
+
+a, a:hover {
+  color: inherit; 
+  text-decoration: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
